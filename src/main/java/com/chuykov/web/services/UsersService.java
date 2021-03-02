@@ -1,9 +1,5 @@
-package ru.web.services;
-
-import ru.web.models.User;
-
-import java.util.Optional;
+package com.chuykov.web.services;
 
 public interface UsersService {
-    User findUser(String nickname);
+
 }

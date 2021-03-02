@@ -1,6 +1,6 @@
-package ru.web.services;
+package com.chuykov.web.services;
 
-import ru.web.models.Post;
+import com.chuykov.web.models.Post;
 
 import java.util.List;
 

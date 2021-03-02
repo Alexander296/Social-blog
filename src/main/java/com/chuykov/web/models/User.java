@@ -20,10 +20,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String email;
-    private String nickname;
+    private String hashPassword;
+    private String firstName;
+    private String lastName;
 
-    @OneToMany
-    private Set<Post> post;
+    @Enumerated(value = EnumType.STRING)
+    private Authority authority;
+
+    //@OneToMany(fetch = FetchType.LAZY)
+    //private Set<Post> post;
 
 
 }

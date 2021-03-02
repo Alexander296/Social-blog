@@ -4,6 +4,8 @@ package com.chuykov.web.repositories;
 import com.chuykov.web.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UsersRepository extends JpaRepository<User, Long> {
+import java.util.Optional;
 
+public interface UsersRepository extends JpaRepository<User, Long> {
+    Optional<User> findByEmail(String email);
 }

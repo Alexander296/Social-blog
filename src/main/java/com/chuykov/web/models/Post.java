@@ -21,13 +21,8 @@ public class Post {
     @Column(length = 3000)
     private String text;
 
-    @ManyToOne
-    @JoinColumn(name = "author_id")
-    private User author;
-
-    public Post(String text, User user) {
+    public Post(String text) {
         this.text = text;
-        this.author = user;
     }
 
 }
