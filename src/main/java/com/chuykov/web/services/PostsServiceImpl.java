@@ -2,6 +2,7 @@ package com.chuykov.web.services;
 
 
 import com.chuykov.web.models.Post;
+import com.chuykov.web.models.User;
 import com.chuykov.web.repositories.PostsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,5 +23,10 @@ public class PostsServiceImpl implements PostsService {
     @Override
     public List<Post> findAllPosts() {
         return postsRepository.findAll();
+    }
+
+    @Override
+    public List<Post> findAllPostByUser(User user){
+        return postsRepository.findAllByAuthorId(user.getId());
     }
 }

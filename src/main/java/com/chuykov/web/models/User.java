@@ -27,8 +27,5 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     private Authority authority;
 
-    //@OneToMany(fetch = FetchType.LAZY)
-    //private Set<Post> post;
-
 
 }

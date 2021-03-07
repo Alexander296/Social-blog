@@ -22,16 +22,15 @@ public class PostsController {
 
     @GetMapping("/posts")
     public String getPostsPage(@AuthenticationPrincipal UsersDetailsImpl usersDetails, Model model){
-        User user = usersDetails.getUser();
-        System.out.println(user);
-        List<Post> posts = postsService.findAllPosts();
+        List<Post> posts = postsService.findAllPostByUser(usersDetails.getUser());
         model.addAttribute("posts", posts);
         return "posts_page";
     }
 
     @PostMapping("/addPosts")
-    public String addPost(@RequestParam("text") String text){
-        Post post = new Post(text);
+    public String addPost(@AuthenticationPrincipal UsersDetailsImpl usersDetails,
+                          @RequestParam("text") String text){
+        Post post = Post.builder().text(text).author(usersDetails.getUser()).build();
         postsService.addPost(post);
         return "redirect:/posts";
     }
